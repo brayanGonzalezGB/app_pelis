@@ -1,16 +1,34 @@
-# flutter_application_11
+# App Pelis - Flutter Movies App
 
-A new Flutter project.
+Una aplicación Flutter para explorar películas, series y actores usando la API de The Movie Database (TMDB).
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- 🎬 Búsqueda de películas, series y actores
+- 🌙 Tema oscuro/claro
+- 📱 Diseño responsivo
+- 🔍 Filtros por género
+- ⭐ Ratings y detalles de películas
+- 👤 Perfil de usuario personalizable
 
-A few resources to get you started if this is your first Flutter project:
+## Tecnologías utilizadas
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter 3.0+
+- Riverpod (State Management)
+- HTTP (API calls)
+- Material Design 3
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## API
+
+Esta aplicación utiliza [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api) para obtener información sobre películas, series y actores.
+
+## Instalación
+
+1. Clona este repositorio
+2. Ejecuta `flutter pub get`
+3. Configura tu API key de TMDB en el archivo `lib/env.dart`
+4. Ejecuta `flutter run`
+
+## Capturas
+
+_Próximamente..._
