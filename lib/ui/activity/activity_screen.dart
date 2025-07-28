@@ -186,6 +186,7 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
             ref.read(tmdbApiServiceProvider).getImageUrl(movie['poster_path']);
 
         return _buildActivityItem(
+          movie['id'] ?? 0,
           movie['title'] ?? '',
           _getGenreText(movie['genre_ids']),
           movie['overview'] ?? '',
@@ -198,6 +199,7 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
   }
 
   Widget _buildActivityItem(
+    int movieId,
     String title,
     String subtitle,
     String description,
@@ -220,6 +222,7 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
             context,
             MaterialPageRoute(
               builder: (context) => MovieDetailScreen(
+                movieId: movieId,
                 title: title,
                 imagePath: imagePath,
                 username: widget.username,

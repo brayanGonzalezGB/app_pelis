@@ -179,17 +179,24 @@ class _SeriesScreenState extends ConsumerState<SeriesScreen> {
                   ),
                   itemCount: series.length,
                   itemBuilder: (context, index) {
+                    final seriesItem = series[index];
+                    final imageUrl = ref
+                        .read(tmdbApiServiceProvider)
+                        .getImageUrl(seriesItem['poster_path']);
+
                     return MovieGridCard(
-                      title: series[index].name,
-                      subtitle: 'rating',
-                      imagePath: series[index].imagePath,
+                      title: seriesItem['name'] ?? '',
+                      subtitle:
+                          'Rating: ${seriesItem['vote_average']?.toString() ?? 'N/A'}',
+                      imagePath: imageUrl,
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => MovieDetailScreen(
-                              title: series[index].name,
-                              imagePath: series[index].imagePath,
+                              movieId: seriesItem['id'] ?? 0,
+                              title: seriesItem['name'] ?? '',
+                              imagePath: imageUrl,
                               username: widget.username,
                             ),
                           ),

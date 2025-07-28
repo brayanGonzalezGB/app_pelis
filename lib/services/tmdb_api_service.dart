@@ -106,6 +106,38 @@ class TMDBApiService {
     throw Exception('Error al cargar próximas películas');
   }
 
+  // Get movie details by ID
+  Future<Map<String, dynamic>> fetchMovieDetails(int movieId) async {
+    final response = await http.get(
+        Uri.parse('$_baseUrl/movie/$movieId?api_key=$_apiKey&language=es-ES'));
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    }
+    throw Exception('Error al cargar detalles de la película');
+  }
+
+  // Get movie cast
+  Future<List<dynamic>> fetchMovieCredits(int movieId) async {
+    final response = await http.get(Uri.parse(
+        '$_baseUrl/movie/$movieId/credits?api_key=$_apiKey&language=es-ES'));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['cast'];
+    }
+    throw Exception('Error al cargar el reparto de la película');
+  }
+
+  // Get movie watch providers
+  Future<Map<String, dynamic>> fetchMovieProviders(int movieId) async {
+    final response = await http.get(
+        Uri.parse('$_baseUrl/movie/$movieId/watch/providers?api_key=$_apiKey'));
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      return data['results'];
+    }
+    throw Exception('Error al cargar proveedores de la película');
+  }
+
   String getImageUrl(String? path) {
     if (path == null || path.isEmpty) {
       return 'images/avengers.png'; // Ruta por defecto si no hay imagen

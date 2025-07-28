@@ -1,6 +1,0 @@
-{
-  "command": "",
-  "serverUrl": "http://localhost:5500",
-  "authenticateProxy": false,
-  "commitMode": "commits"
-}

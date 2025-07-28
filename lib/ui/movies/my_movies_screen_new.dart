@@ -215,6 +215,7 @@ class _MyMoviesScreenState extends ConsumerState<MyMoviesScreen> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => MovieDetailScreen(
+                      movieId: movie['id'] ?? 0,
                       title: movie['title'] ?? '',
                       imagePath: imageUrl,
                       username: widget.username,

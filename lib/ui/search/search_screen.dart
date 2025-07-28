@@ -310,6 +310,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => MovieDetailScreen(
+                    movieId: movie['id'] ?? 0,
                     title: movie['title'] ?? '',
                     imagePath: imageUrl,
                     username: widget.username,
@@ -416,16 +417,31 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       description: description,
       imagePath: imagePath ?? '',
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => MovieDetailScreen(
-              title: title,
-              imagePath: imagePath ?? '',
-              username: widget.username,
+        if (_selectedCategory == 'Películas' && item['id'] != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MovieDetailScreen(
+                movieId: item['id'],
+                title: title,
+                imagePath: imagePath ?? '',
+                username: widget.username,
+              ),
             ),
-          ),
-        );
+          );
+        } else if (_selectedCategory == 'Series' && item['id'] != null) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MovieDetailScreen(
+                movieId: item['id'],
+                title: title,
+                imagePath: imagePath ?? '',
+                username: widget.username,
+              ),
+            ),
+          );
+        }
       },
     );
   }
@@ -474,6 +490,7 @@ class GenreResultsScreen extends ConsumerWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => MovieDetailScreen(
+                      movieId: movie['id'] ?? 0,
                       title: movie['title'] ?? '',
                       imagePath: imageUrl,
                       username: username,

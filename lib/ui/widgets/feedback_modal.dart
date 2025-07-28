@@ -25,7 +25,7 @@ class _FeedbackModalState extends State<FeedbackModal> {
 
     showDialog(
       context: context,
-      barrierColor: Colors.black.withOpacity(0.7), // ✅ corrección aquí
+      barrierColor: Colors.black.withOpacity(0.7),
       builder: (context) => ThanksModal(
         onClose: () {
           Navigator.of(context).pop();

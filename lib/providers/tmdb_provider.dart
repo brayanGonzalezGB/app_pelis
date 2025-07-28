@@ -55,6 +55,24 @@ final moviesByGenreProvider =
   return ref.read(tmdbApiServiceProvider).fetchMoviesByGenre(genreId);
 });
 
+// Provider for movie details
+final movieDetailsProvider =
+    FutureProvider.family<Map<String, dynamic>, int>((ref, movieId) async {
+  return ref.read(tmdbApiServiceProvider).fetchMovieDetails(movieId);
+});
+
+// Provider for movie credits
+final movieCreditsProvider =
+    FutureProvider.family<List<dynamic>, int>((ref, movieId) async {
+  return ref.read(tmdbApiServiceProvider).fetchMovieCredits(movieId);
+});
+
+// Provider for movie providers
+final movieProvidersProvider =
+    FutureProvider.family<Map<String, dynamic>, int>((ref, movieId) async {
+  return ref.read(tmdbApiServiceProvider).fetchMovieProviders(movieId);
+});
+
 // Genre mapping for categories
 class GenreMap {
   static const Map<String, int> genres = {

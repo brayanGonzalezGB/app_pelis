@@ -118,7 +118,8 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                           return 'Por favor ingresa tu correo';
                         }
                         if (!value.contains('@') ||
-                            !value.contains('.com, .mx, .org, .net, .edu')) {
+                            !value.contains('.com') ||
+                            !value.contains('.mx')) {
                           return 'Por favor ingresa un correo válido';
                         }
                         return null;
